@@ -1,0 +1,424 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    background-color: rgb(22, 78, 100);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.atagstyle {
+    color: white;
+    font-weight: 700;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 1.0rem;
+    border-style: solid;
+    border-color: rgb(79, 199, 255);
+    border-radius: 15px;
+    padding: 13px;
+}
+
+.atagstylenew {
+    margin-top: 40px;
+    color: white;
+    font-weight: 700;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    border-style: solid;
+    border-color: rgb(79, 199, 255);
+    border-radius: 15px;
+    padding: 13px;
+}
+
+
+.atagstyle:hover {
+    color: rgb(53, 198, 255);
+    border-color: rgb(13, 156, 212);
+}
+
+.atagstylenew:hover {
+    color: rgb(53, 198, 255);
+    border-color: rgb(13, 156, 212);
+}
+
+.atagstyleoptiontwo {
+    background-color: rgb(180, 8, 180);
+    border-radius: 50px;
+    padding: 20px;
+    color: white;
+    font-weight: 700;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.thankyoucontainer {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.thanksforsigningup {
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.5rem;
+    -webkit-text-stroke: black 1px;
+    margin: 0px;
+}
+
+.textstyletwo {
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.5rem;
+    -webkit-text-stroke: black 1px;
+    margin: 0px;
+}
+
+.textstyletwow {
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.5rem;
+    -webkit-text-stroke: black 1px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.ticketidtext {
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 3.5rem;
+    -webkit-text-stroke: black 1px;
+    margin: 0px;
+    border: solid;
+    border-color: rgb(255, 0, 0);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.atagstyleoptionthree {
+    background-color: rgb(180, 8, 180);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.atagstyleoptiontwo:hover {
+    background-color: rgb(99, 5, 99);
+}
+
+.atagstyleoptionthree:hover {
+    background-color: rgb(99, 5, 99);
+}
+
+.backgroundcontainer {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 175px;
+}
+
+.backgroundcontainerthanks {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 233px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.backgroundcontainerdoesnotexist {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 262px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.headlinetext {
+    color: rgb(72, 188, 255);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 5.5rem;
+    text-align: center;
+    -webkit-text-stroke: rgb(0, 0, 0) 2px;
+}
+
+.wowie {
+    background-color: rgb(22, 78, 100);
+
+}
+
+
+.headlinetexttwo {
+    color: rgb(255, 255, 255);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0px;
+}
+
+.thankyou {
+    color: rgb(255, 255, 255);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 2.9rem;
+    text-align: center;
+    -webkit-text-stroke: black 1px;
+}
+
+.infoonimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.imgstyle {
+    width: 100px;
+    height: auto;
+    filter: invert(81%) sepia(92%) saturate(0%) hue-rotate(312deg) brightness(110%) contrast(102%);
+}
+
+.Sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+    padding: 15px;
+}
+
+.sposorsloginpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.containerforreg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.brukernavnstyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.passordstyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginnbtnstyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerforreg {
+    background-color: rgb(22, 78, 100);
+    border-radius: 80px;
+    padding: 15px;
+}
+
+.textstylelogin {
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.herstyle {
+    color: rgb(255, 0, 0);
+}
+
+.herstyle:hover {
+    color: azure;
+}
+
+.submitbtnstyle {
+    background-color: rgb(18, 103, 184);
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-style: solid;
+    border-color: rgb(79, 199, 255);
+    border-radius: 15px;
+    padding: 11px;
+}
+
+.backgroundcontainerforregistartion {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 208px;
+}
+
+.containerforloginpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(22, 78, 100);
+    border-radius: 80px;
+    margin-top: 20px;
+}
+
+.cotnainerforevetythinglogin {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 155px;
+}
+
+.inputcontainer {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/6447936db557a42927661514/ba5a242b-6b65-491b-be46-86dd9c5c0518/LAN+BLurred.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.inputtextstyle {
+    color: aqua;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    -webkit-text-stroke: black 1px;
+    font-size: 2.5rem;
+}
+
+.inputsstyletq {
+    border: solid;
+    border-color: aqua;
+    border-radius: 13px;
+    padding: 15px;
+}
+
+.hvorforinpuit {
+    border: solid;
+    border-color: aqua;
+    border-radius: 13px;
+    padding: 15px;
+}
+
+.notloggedinstyle {
+    color: red;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.loginandregisterinputstyle {
+    border: solid;
+    border-color: aqua;
+    border-radius: 13px;
+    padding: 15px;
+}
+
+.submitstylebutn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.hvorforinpuit {
+    height: 300px;
+    width: 250px;
+}
+
+.submitbtnstyle:hover {
+    background-color: rgb(6, 70, 129);
+}
+
+.welcomeuserstyle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.welcomeUser {
+    color: white;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+form {
+    padding: 0;
+    margin: 0;
+}
