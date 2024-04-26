@@ -17,6 +17,8 @@ $brukernavn = $_SESSION['brukernavn'];
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 
+<!-- dette er en loginpage hvor brukeren får muligheten til å skrive sin egen passord og brukernavn for å logge inn -->
+
 <body>
     <div class="navbar">
         <a href="home.php" class="atagstyle">Home</a>

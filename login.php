@@ -33,3 +33,5 @@ if (isset($_POST['submit'])) {
     echo "Du har ikke trykket submit i formen";
 }
 ?>
+
+<!-- dette er koden for å få brukeren til logge inn i nettsiden, der har jeg definert nødvendig informasjon som datbase navn, passord, user og hvilken sever. -->

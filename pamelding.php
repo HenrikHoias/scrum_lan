@@ -29,6 +29,7 @@ $brukernavn = $_SESSION['brukernavn'];
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
 
+        <!--         php kode som printer ut brukeren username når den har logget inn, den skal også vise en logout knapp hvis brukeren har logget inn. -->
         <?php
         // Check if the user is logged in
         if (isset($_SESSION['brukernavn'])) {
@@ -46,6 +47,8 @@ $brukernavn = $_SESSION['brukernavn'];
         </div>
     </div>
 
+
+    <!--     jeg har brukt form method POST for å levere inn informasjonen brukeren taster inn til databasen. -->
     <form method="POST" action="thankyou.php">
         <div class="inputcontainer">
             <h2 class="inputtextstyle">Navn</h2>
@@ -76,6 +79,10 @@ $brukernavn = $_SESSION['brukernavn'];
 
 
     <?php
+
+    /*     dette her er database delen som gjør at det brukeren skriver blir sendt til databasen.
+        Jeg har brukt syntaxen require for å enkelt hente database informasjonen.
+        jeg har definert variablene til post som at det blir levert i databasen og sql for å sende det inn. */
 
     require "databaseconnection.php";
 

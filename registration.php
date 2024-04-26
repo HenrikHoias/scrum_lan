@@ -42,6 +42,7 @@ $brukernavn = $_SESSION['brukernavn'];
                 <div class="loginnbtnstyle">
                     <input type="submit" value="Logg inn" name="submit" class="submitbtnstyle" />
                 </div>
+                <!--                 kode delen som registrer brukeren -->
                 <?php
                 if (isset($_POST['submit'])) {
                     //Gjøre om POST-data til variabler
@@ -72,6 +73,7 @@ $brukernavn = $_SESSION['brukernavn'];
                     }
                 }
                 ?>
+                <!--                 slutt på registrerings koden -->
             </div>
     </div>
 

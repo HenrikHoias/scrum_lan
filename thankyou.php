@@ -52,7 +52,7 @@ $brukernavn = $_SESSION['brukernavn'];
         </h2>
         <h2 class="textstyletwo">På melding ID:
             <?php
-
+            /* her er delen av koden som printer ut saks id eller påmeldings id. */
             $thenumber = "SELECT * FROM pameldingsinfo;";
             $resultavgreie = mysqli_query($connec, $thenumber);
             $resultavgreiecheck = mysqli_num_rows($resultavgreie);
@@ -60,7 +60,8 @@ $brukernavn = $_SESSION['brukernavn'];
             echo '<h2 class="ticketidtext">' . $textBefore . $resultavgreiecheck . '</h2>';
 
             ?>
-            <a href="https://cdn.splashdamage.com/downloads/games/wet/WolfET_2_60b_custom.exe" class="atagstylenew">Last ned Wolfenstein spillet!</a>
+            <a href="https://cdn.splashdamage.com/downloads/games/wet/WolfET_2_60b_custom.exe" class="atagstylenew">Last
+                ned Wolfenstein spillet!</a>
 
     </div>
 

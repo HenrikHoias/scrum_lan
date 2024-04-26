@@ -19,12 +19,14 @@ $brukernavn = $_SESSION['brukernavn'];
 </head>
 
 <body>
+    <!--     navbar delen av koden -->
     <div class="navbar">
         <a href="home.php" class="atagstyle">Home</a>
         <a href="pamelding.php" class="atagstyle">Meld Deg På</a>
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
 
+        <!--         php kode som printer ut brukeren username når den har logget inn, den skal også vise en logout knapp hvis brukeren har logget inn. -->
         <?php
         // Check if the user is logged in
         if (isset($_SESSION['brukernavn'])) {
@@ -41,6 +43,10 @@ $brukernavn = $_SESSION['brukernavn'];
             </p>
         </div>
     </div>
+
+    <!--     slutt på php delen -->
+
+    <!--     slutt på navbar delen -->
 
 
 
