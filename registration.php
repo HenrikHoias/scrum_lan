@@ -54,7 +54,7 @@ $brukernavn = $_SESSION['brukernavn'];
                         or die('Error connecting to MySQL server.');
 
                     //Gjøre klar SQL-strengen
-                    $query = "INSERT INTO kundeinfo (brukernavn, passord) VALUES ('$brukernavn','$passord')";
+                    $query = "INSERT INTO kundeinfo (brukernavn, passord, usertype) VALUES ('$brukernavn','$passord', 'user')";
 
                     //Utføre spørringen
                     $result = mysqli_query($dbc, $query)

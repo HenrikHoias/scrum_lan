@@ -111,6 +111,62 @@ body {
     text-align: center;
 }
 
+.arangorliststyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.arangorbackgroundcontainer {
+    background-image: url(images/lanbackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 175px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #dddddd;
+}
+
+/* Define table header style */
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Define table data style */
+td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+}
+
+/* Define alternating row color */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.headlinearangorstyle {
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.5rem;
+    -webkit-text-stroke: black 1px;
+}
+
+.rowstyle {
+    background-color: white;
+}
+
 .ticketidtext {
     color: white;
     font-family: "Source Sans 3", sans-serif;

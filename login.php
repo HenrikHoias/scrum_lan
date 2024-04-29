@@ -1,37 +1,44 @@
 <?php
 if (isset($_POST['submit'])) {
-    //Gjøre om POST-data til variabler
+    // Convert POST data to variables
     $brukernavn = $_POST['brukernavn'];
     $passord = md5($_POST['passord']);
 
-    //Koble til databasen
+    // Connect to the database
     $dbc = mysqli_connect('127.0.0.1', 'root', 'Admin', 'winkensteindatabase') or die('Error connecting to MySQL server.');
 
-    //Gjøre klar SQL-strengen
-    $query = "SELECT brukernavn, passord from kundeinfo where brukernavn='$brukernavn' and passord='$passord'";
-    echo $query;
+    // Prepare the SQL query
+    $query = "SELECT brukernavn, passord, usertype FROM kundeinfo WHERE brukernavn='$brukernavn' AND passord='$passord'";
 
-    //Utføre spørringen
+    // Execute the query
     $result = mysqli_query($dbc, $query) or die('Error querying database.');
 
-    //Sjekke om spørringen gir resultater
+    // Check if the query returns any rows
     if ($result->num_rows > 0) {
-        // Gyldig login
+        // Valid login
+        // Start the session
+        session_start();
+
+        // Fetch the user's data
+        $row = mysqli_fetch_assoc($result);
+
         // Set the 'username' session variable
-        session_start(); // Make sure to start the session
         $_SESSION['brukernavn'] = $brukernavn;
 
-        header('location: success.html');
+        // Check the user type and redirect accordingly
+        if ($row['usertype'] == 'admin') {
+            header('location: sjekkarangor.php'); // Redirect to admin page
+        } else {
+            header('location: index.php'); // Redirect to user page
+        }
     } else {
-        // Ugyldig login
+        // Invalid login
         header('location: failure.html');
     }
 
-    //Koble fra databasen
+    // Close the database connection
     mysqli_close($dbc);
 } else {
-    echo "Du har ikke trykket submit i formen";
+    echo "Du har ikke trykket submit i formen"; // You haven't clicked submit in the form
 }
 ?>
-
-<!-- dette er koden for å få brukeren til logge inn i nettsiden, der har jeg definert nødvendig informasjon som datbase navn, passord, user og hvilken sever. -->

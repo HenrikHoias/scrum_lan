@@ -1,5 +1,18 @@
 <?php
-session_start(); // Make sure to start the session at the beginning of your PHP file
+session_start();
+
+// Step 1: Connect to the database
+$connection = mysqli_connect("localhost", "root", "Admin", "winkensteindatabase");
+
+
+// Check connection
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Step 2: Retrieve data from the table
+$sql = "SELECT * FROM pameldingsinfo"; // Replace 'your_table_name' with your actual table name
+$result = mysqli_query($connection, $sql);
 
 // Assuming you have stored the user's name in a session variable called 'user_name'
 $brukernavn = $_SESSION['brukernavn'];
@@ -44,13 +57,54 @@ $brukernavn = $_SESSION['brukernavn'];
         </div>
     </div>
 
-    <div>
-        <h2>wqdddqdw</h2>
+    <?php
+    // Display the "List of Participants" button if the user is an admin
+    if ($usertype === 'admin') {
+        echo '<div class="arangorbackgroundcontainer">';
+        echo '<div class="arangorliststyle">';
+        echo '<h2 class="headlinearangorstyle">Velkommen Admin</h2>';
+        echo '<h2 class="headlinearangorstyle">Liste over folk som har påmeldt seg til LAN</h2>';
+        echo '<button>List of Participants</button>'; // Add your button here
+        echo '</div></div>';
+    }
+    ?>
+
+    <div class="arangorbackgroundcontainer">
+        <div class="arangorliststyle">
+            <h2 class="headlinearangorstyle">Velkommen Admin</h2>
+            <h2 class="headlinearangorstyle">Liste over folk som har påmeldt seg til LAN</h2>
+
+            <!-- Step 3: Display the data on the website -->
+            <table>
+                <thead>
+                    <tr>
+                        <?php
+                        // Fetch column names and display as table headers
+                        $row = mysqli_fetch_assoc($result);
+                        foreach ($row as $column_name => $value) {
+                            echo "<th>$column_name</th>";
+                        }
+                        ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Rewind the result set pointer back to the beginning
+                    mysqli_data_seek($result, 0);
+
+                    // Fetch and display all rows
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        foreach ($row as $value) {
+                            echo "<td>$value</td>";
+                        }
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
-
-
 
 
     <div class="wowie">
@@ -67,3 +121,7 @@ $brukernavn = $_SESSION['brukernavn'];
 </body>
 
 </html>
+<?php
+// Step 4: Close the database connection
+mysqli_close($connection);
+?>

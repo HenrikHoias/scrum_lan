@@ -1,8 +1,28 @@
 <?php
-session_start(); // Make sure to start the session at the beginning of your PHP file
+session_start();
 
-// Assuming you have stored the user's name in a session variable called 'user_name'
+// Step 1: Connect to the database
+$connection = mysqli_connect("localhost", "root", "Admin", "winkensteindatabase");
+
+// Check connection
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Assuming you have stored the user's name in a session variable called 'brukernavn'
 $brukernavn = $_SESSION['brukernavn'];
+
+// Step 2: Retrieve data from the database based on the user's username
+$sql = "SELECT usertype FROM Kundeinfo WHERE brukernavn = '$brukernavn'";
+$result = mysqli_query($connection, $sql);
+
+// Check if query was successful and if the user is an admin
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $usertype = $row['usertype'];
+}
+
+mysqli_close($connection);
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +48,13 @@ $brukernavn = $_SESSION['brukernavn'];
         <a href="pamelding.php" class="atagstyle">Meld Deg På</a>
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
+        <?php
+        // Display the "List of Participants" button if the user is an admin
+        if ($usertype === 'admin') {
+            echo '<a href="sjekkarangor.php" class="atagstyle">Deltakere</a>'; // Add your button here
+        }
+        ?>
+
 
         <!--         php kode som printer ut brukeren username når den har logget inn, den skal også vise en logout knapp hvis brukeren har logget inn. -->
         <?php
