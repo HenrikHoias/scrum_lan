@@ -21,7 +21,7 @@ $brukernavn = $_SESSION['brukernavn'];
 <body>
     <!--     navbar delen av koden -->
     <div class="navbar">
-        <a href="home.php" class="atagstyle">Home</a>
+        <a href="index.php" class="atagstyle">Home</a>
         <a href="pamelding.php" class="atagstyle">Meld Deg På</a>
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
@@ -44,14 +44,14 @@ $brukernavn = $_SESSION['brukernavn'];
         </div>
     </div>
 
-<div>
-    <h2>wqdddqdw</h2>
-</div>
-   
+    <div>
+        <h2>wqdddqdw</h2>
+    </div>
 
 
 
-    
+
+
 
     <div class="wowie">
         <div class="Sponsors">
