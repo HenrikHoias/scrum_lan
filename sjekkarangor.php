@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Step 1: Connect to the database
 $connection = mysqli_connect("localhost", "root", "Admin", "winkensteindatabase");
 
 
@@ -11,10 +10,9 @@ if (!$connection) {
 }
 
 // Step 2: Retrieve data from the table
-$sql = "SELECT * FROM pameldingsinfo"; // Replace 'your_table_name' with your actual table name
+$sql = "SELECT * FROM pameldingsinfo";
 $result = mysqli_query($connection, $sql);
 
-// Assuming you have stored the user's name in a session variable called 'user_name'
 $brukernavn = $_SESSION['brukernavn'];
 ?>
 
