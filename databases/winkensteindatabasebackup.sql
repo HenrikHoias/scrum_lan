@@ -1,8 +1,8 @@
--- MariaDB dump 10.19-11.1.2-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19-11.3.2-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: winkensteindatabase
 -- ------------------------------------------------------
--- Server version	11.1.2-MariaDB
+-- Server version	11.3.2-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ LOCK TABLES `kundeinfo` WRITE;
 /*!40000 ALTER TABLE `kundeinfo` DISABLE KEYS */;
 INSERT INTO `kundeinfo` VALUES
 (1,'erenadmin','b1c4e21e06cf9b5597e38e9dcd224c6b','admin'),
-(2,'eren','a209541310cac0ba0f9d419d51061198','user');
+(2,'erik','202cb962ac59075b964b07152d234b70','user');
 /*!40000 ALTER TABLE `kundeinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,13 +52,11 @@ DROP TABLE IF EXISTS `pameldingsinfo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pameldingsinfo` (
   `idpameldingsinfo` int(11) NOT NULL AUTO_INCREMENT,
-  `navn` varchar(245) DEFAULT NULL,
-  `etternavn` varchar(245) DEFAULT NULL,
-  `alder` varchar(245) DEFAULT NULL,
+  `brukernavn` varchar(245) DEFAULT NULL,
   `email` varchar(245) DEFAULT NULL,
   `hvorfor` varchar(545) DEFAULT NULL,
   PRIMARY KEY (`idpameldingsinfo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_danish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,8 +66,7 @@ CREATE TABLE `pameldingsinfo` (
 LOCK TABLES `pameldingsinfo` WRITE;
 /*!40000 ALTER TABLE `pameldingsinfo` DISABLE KEYS */;
 INSERT INTO `pameldingsinfo` VALUES
-(1,'tester','tests','29','testertests@gmail.com','jeg melder meg pÃ¥ fordi jeg syns lan er kult.'),
-(2,'tester','tests','29','testertests@gmail.com','jeg melder meg pÃ¥ fordi jeg syns lan er kult.');
+(1,'erik','erik@gmail.com','jeg vil melde meg pÃ¥ ford fordi fordi fordi fordi');
 /*!40000 ALTER TABLE `pameldingsinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -82,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-30 10:57:59
+-- Dump completed on 2024-05-01 16:52:11

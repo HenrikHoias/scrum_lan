@@ -54,37 +54,30 @@ if (isset($_GET['navn'])) {
 mysqli_close($connection);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="no">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>På Melding</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,900;1,900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!--     navbar delen av koden -->
     <div class="navbar">
         <a href="index.php" class="atagstyle">Home</a>
         <a href="pamelding.php" class="atagstyle">Meld Deg På</a>
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
-        <?php
-        // Display the "List of Participants" button if the user is an admin
-        if ($usertype === 'admin') {
-            echo '<a href="sjekkarangor.php" class="atagstyle">Deltakere</a>'; // Add your button here
-        }
-        ?>
 
-
-
-        <!--         php kode som printer ut brukeren username når den har logget inn, den skal også vise en logout knapp hvis brukeren har logget inn. -->
         <?php
         // Check if the user is logged in
         if (isset($_SESSION['brukernavn'])) {
@@ -99,28 +92,21 @@ mysqli_close($connection);
             <p class="welcomeUser">Welcome,
                 <?php echo $brukernavn ?>
             </p>
-            <?php
-            if (isset($_SESSION['brukernavn'])) {
-                // If logged in, display the re-download button
-                echo '<div class="downloadgameifregisterdcontainer">
-                <a href="redownloadgame.php" class="atagstyledupe">Re-Download Spillet!</a>
-            </div>';
-            }
-            ?>
         </div>
     </div>
 
-    <!--     slutt på php delen -->
+    <div class="thankyoucontainerdupoe">
+        <h2 class="thanksforsigningup">Takk for at du logett inn. Last ned spillet på nytt!
+        </h2>
+        <a href="https://cdn.splashdamage.com/downloads/games/wet/WolfET_2_60b_custom.exe" class="atagstylenew">Last
+            ned Wolfenstein spillet!</a>
 
-    <!--     slutt på navbar delen -->
-
-    <div class="backgroundcontainer">
-        <h2 class="headlinetext">Velkommen til WolfenStein LAN!</h2>
-        <a href="pamelding.php" class="atagstyleoptiontwo">Meld deg på vår LAN</a>
     </div>
 
+
+
     <div class="wowie">
-        <div class="Sponsors">
+        <div class="Sponsorsdupe">
             <img src="images/dnb.png" class="imgstyle">
             <img src="images/telenor.png" class="imgstyle">
             <img src="images/steelseries.png" class="imgstyle">
@@ -129,7 +115,26 @@ mysqli_close($connection);
     </div>
 
 
+    <?php
 
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+
+
+        $navn = $_POST["navn"];
+        $etternavn = $_POST["etternavn"];
+        $alder = $_POST["alder"];
+        $email = $_POST["email"];
+        $hvorfor = $_POST["hvorfor"];
+
+        $sql = "INSERT INTO pameldingsinfo (navn, etternavn, alder, email, hvorfor) VALUES ('$navn', '$etternavn','$alder','$email', '$hvorfor')";
+        $resultat = mysqli_query($connec, $sql);
+
+    }
+
+
+    ?>
 </body>
 
 </html>

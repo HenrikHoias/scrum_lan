@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+// Sjekk om brukeren er logget inn
+if (!isset($_SESSION['brukernavn'])) {
+    // Hvis ikke logget inn, omdiriger brukeren til innloggingssiden
+    header("Location: loginpage.php");
+    exit(); // Avslutt skriptet for å hindre at resten av siden lastes inn
+}
+
 // Step 1: Connect to the database
 $connection = mysqli_connect("localhost", "root", "Admin", "winkensteindatabase");
 
@@ -12,16 +19,32 @@ if (!$connection) {
 // Assuming you have stored the user's name in a session variable called 'brukernavn'
 $brukernavn = $_SESSION['brukernavn'];
 
-// Step 2: Retrieve data from the database based on the user's username
-$sql = "SELECT usertype FROM Kundeinfo WHERE brukernavn = '$brukernavn'";
-$result = mysqli_query($connection, $sql);
+// Initialize variables for form data
+$email = $hvorfor = "";
 
-// Check if query was successful and if the user is an admin
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $usertype = $row['usertype'];
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $email = $_POST["email"];
+    $hvorfor = $_POST["hvorfor"];
+
+    // Step 2: Retrieve data from the database based on the user's username
+    $sql = "SELECT usertype FROM kundeinfo WHERE brukernavn = '$brukernavn'";
+    $result = mysqli_query($connection, $sql);
+
+    // Step 3: Insert form data into the database
+    $sql_insert = "INSERT INTO pameldingsinfo (brukernavn, email, hvorfor) VALUES ('$brukernavn','$email', '$hvorfor')";
+    $result_insert = mysqli_query($connection, $sql_insert);
+    if (!$result_insert) {
+        echo "Error: " . mysqli_error($connection);
+    } else {
+        // Redirect to thankyou.php
+        header("Location: thankyou.php");
+        exit();
+    }
 }
 
+// Close the database connection
 mysqli_close($connection);
 ?>
 
@@ -48,13 +71,6 @@ mysqli_close($connection);
         <a href="pamelding.php" class="atagstyle">Meld Deg På</a>
         <a href="loginpage.php" class="atagstyle">Logg Inn</a>
         <a href="registration.php" class="atagstyle">Registrer Bruker</a>
-        <?php
-        // Display the "List of Participants" button if the user is an admin
-        if ($usertype === 'admin') {
-            echo '<a href="sjekkarangor.php" class="atagstyle">Deltakere</a>'; // Add your button here
-        }
-        ?>
-
 
         <!--         php kode som printer ut brukeren username når den har logget inn, den skal også vise en logout knapp hvis brukeren har logget inn. -->
         <?php
@@ -71,19 +87,16 @@ mysqli_close($connection);
             <p class="welcomeUser">Welcome,
                 <?php echo $brukernavn ?>
             </p>
+            <div class="downloadgameifregisterdcontainer">
+                <a href="redownloadgame.php" class="atagstyledupe">Re-Download Spillet!</a>
+            </div>
         </div>
     </div>
 
 
     <!--     jeg har brukt form method POST for å levere inn informasjonen brukeren taster inn til databasen. -->
-    <form method="POST" action="thankyou.php">
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div class="inputcontainer">
-            <h2 class="inputtextstyle">Navn</h2>
-            <input type="text" name="navn" placeholder="name" class="inputsstyletq">
-            <h2 class="inputtextstyle">Etternavn</h2>
-            <input type="text" name="etternavn" placeholder="Etternavn" class="inputsstyletq">
-            <h2 class="inputtextstyle">Alder</h2>
-            <input type="text" name="alder" placeholder="alder" class="inputsstyletq">
             <h2 class="inputtextstyle">Email</h2>
             <input type="email" name="email" placeholder="email" class="inputsstyletq">
             <h2 class="inputtextstyle">Hvorfor vil du melde deg?</h2>
@@ -116,14 +129,11 @@ mysqli_close($connection);
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
-
-        $navn = $_POST["navn"];
-        $etternavn = $_POST["etternavn"];
-        $alder = $_POST["alder"];
+        $brukernavn = $_POST["brukernavn"];
         $email = $_POST["email"];
         $hvorfor = $_POST["hvorfor"];
 
-        $sql = "INSERT INTO pameldingsinfo (navn, etternavn, alder, email, hvorfor) VALUES ('$navn', '$etternavn','$alder','$email', '$hvorfor')";
+        $sql = "INSERT INTO pameldingsinfo (brukernavn, email, hvorfor) VALUES ('$brukernavn','$email', '$hvorfor')";
         $resultat = mysqli_query($connec, $sql);
 
     }

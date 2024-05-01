@@ -24,6 +24,26 @@ body {
     padding: 13px;
 }
 
+.downloadgameifregisterdcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 746px;
+}
+
+.atagstyledupe {
+    color: white;
+    font-weight: 700;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 1.0rem;
+    border-style: solid;
+    border-color: rgb(79, 199, 255);
+    border-radius: 15px;
+    padding: 13px;
+}
+
 .atagstylenew {
     margin-top: 40px;
     color: white;
@@ -67,6 +87,18 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.thankyoucontainerdupoe {
+    background-image: url(images/lanbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 235px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,6 +325,15 @@ tr:nth-child(even) {
     flex-direction: row;
     gap: 100px;
     padding: 15px;
+}
+
+.Sponsorsdupe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+    padding: 35px;
 }
 
 .sposorsloginpage {

@@ -4,6 +4,10 @@ session_start(); // Make sure to start the session at the beginning of your PHP 
 
 // Assuming you have stored the user's name in a session variable called 'user_name'
 $brukernavn = $_SESSION['brukernavn'];
+
+$email = $_POST["email"];
+$hvorfor = $_POST["hvorfor"];
+
 ?>
 
 <!DOCTYPE html>
@@ -83,14 +87,11 @@ $brukernavn = $_SESSION['brukernavn'];
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
-
-        $navn = $_POST["navn"];
-        $etternavn = $_POST["etternavn"];
-        $alder = $_POST["alder"];
+        $brukernavn = $_POST["brukernavn"];
         $email = $_POST["email"];
         $hvorfor = $_POST["hvorfor"];
 
-        $sql = "INSERT INTO pameldingsinfo (navn, etternavn, alder, email, hvorfor) VALUES ('$navn', '$etternavn','$alder','$email', '$hvorfor')";
+        $sql = "INSERT INTO pameldingsinfo (brukernavn, email, hvorfor) VALUES ('$brukernavn','$email', '$hvorfor')";
         $resultat = mysqli_query($connec, $sql);
 
     }
